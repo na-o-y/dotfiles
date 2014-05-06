@@ -1,14 +1,12 @@
-" A charm for NeoBundle
+"""""""""""""""
+" NeoBundle
+"""""""""""""""
 if has ('vim_starting')
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-
-"""""""""""""""
-" General plugins
-"""""""""""""""
 
 " Goods
 NeoBundle 'Shougo/vimshell'
@@ -31,10 +29,17 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'vim-scripts/newspaper.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 
+" For specific languages/frameworks
+NeoBundle 'aharisu/vim_goshrepl'
+NeoBundle 'aharisu/vim-gdev'
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'soh335/vim-symfony'
+NeoBundle 'derekwyatt/vim-scala'
+
 """""""""""""""
 " General preferences
 """""""""""""""
-
 " Color
 :set t_Co=256
 syntax enable
@@ -44,7 +49,6 @@ colorscheme hybrid
 set shiftwidth=2
 set autoindent
 set expandtab
-filetype plugin indent on
 
 " Line number
 set number
@@ -87,11 +91,9 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-
 """""""""""""""
 " For specific languages/frameworks
 """""""""""""""
-
 " Syntastic c++11
 if executable("clang++")
   let g:syntastic_cpp_compiler = 'clang++'
@@ -105,10 +107,6 @@ if executable("clang++")
 endif
 
 " Haskell
-NeoBundle 'aharisu/vim_goshrepl'
-NeoBundle 'aharisu/vim-gdev'
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'ujihisa/neco-ghc'
 " let g:neocomplete#keyword_patterns['gosh-repl'] = "[[:alpha:]+*/@$_=.!?-][[:alnum:]+*/@$_:=.!?-]*"
 
 " GoLang
@@ -126,9 +124,7 @@ autocmd FileType php setl smartindent cinwords=if,elif,else,for,while,try,except
 autocmd FileType php setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:syntastic_quiet_messages = { "type": "style", "file": '\m\c\.php$'}
 
-" Symfony
-NeoBundle 'soh335/vim-symfony'
 
 
-
+filetype plugin indent on
 NeoBundleCheck
