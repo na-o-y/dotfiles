@@ -1,14 +1,14 @@
-" A charm for NeoBundle
-if has ('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#rc(expand('~/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+set nocompatible
 
 """""""""""""""
-" General plugins
+" NeoBundle
 """""""""""""""
+if has ('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle'))
+endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Goods
 NeoBundle 'Shougo/vimshell'
@@ -22,7 +22,6 @@ NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'chazmcgarvey/vimcoder'
 NeoBundle 'Shougo/unite.vim'
 
 " Color schemes
@@ -30,6 +29,18 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'vim-scripts/newspaper.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+
+" For specific languages/frameworks
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'soh335/vim-symfony'
+NeoBundle 'aharisu/vim_goshrepl'
+NeoBundle 'aharisu/vim-gdev'
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'ujihisa/neco-ghc'
+
+call neobundle#end()
+filetype plugin indent on
+NeoBundleCheck
 
 """""""""""""""
 " General preferences
@@ -44,7 +55,6 @@ colorscheme hybrid
 set shiftwidth=2
 set autoindent
 set expandtab
-filetype plugin indent on
 
 " Line number
 set number
@@ -92,7 +102,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " For specific languages/frameworks
 """""""""""""""
 
-" Syntastic c++11
+" C++11
 if executable("clang++")
   let g:syntastic_cpp_compiler = 'clang++'
   let g:syntastic_cpp_compiler_options = '-std=c++1y'
@@ -103,12 +113,9 @@ if executable("clang++")
     \ }
   let g:quickrun_config['cpp'] = {'type': 'cpp/clang++1y'}
 endif
+autocmd FileType cpp setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " Haskell
-NeoBundle 'aharisu/vim_goshrepl'
-NeoBundle 'aharisu/vim-gdev'
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'ujihisa/neco-ghc'
 " let g:neocomplete#keyword_patterns['gosh-repl'] = "[[:alpha:]+*/@$_=.!?-][[:alnum:]+*/@$_:=.!?-]*"
 
 " GoLang
@@ -125,10 +132,3 @@ autocmd FileType php setl autoindent
 autocmd FileType php setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType php setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:syntastic_quiet_messages = { "type": "style", "file": '\m\c\.php$'}
-
-" Symfony
-NeoBundle 'soh335/vim-symfony'
-
-
-
-NeoBundleCheck
