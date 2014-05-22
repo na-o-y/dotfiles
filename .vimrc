@@ -45,7 +45,6 @@ NeoBundleCheck
 """""""""""""""
 " General preferences
 """""""""""""""
-
 " Color
 :set t_Co=256
 syntax enable
@@ -96,7 +95,6 @@ let g:neocomplcache_enable_at_startup = 1
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 
 """""""""""""""
 " For specific languages/frameworks
