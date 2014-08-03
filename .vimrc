@@ -12,7 +12,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Goods
 NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -90,6 +97,12 @@ nnoremap tl  :<C-u>tags<CR>
 
 " Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+if !exists('g:neocomplcache_keyword_patterns')
+  let g:neocomplcache_keyword_patterns = {}
+endif
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
 
 " NeoSnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -113,15 +126,9 @@ if executable("clang++")
 endif
 autocmd FileType cpp setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
-" Haskell
-" let g:neocomplete#keyword_patterns['gosh-repl'] = "[[:alpha:]+*/@$_=.!?-][[:alnum:]+*/@$_:=.!?-]*"
-
 " GoLang
 set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
 let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 au BufNewFile,BufRead *.go setf go
 
@@ -130,3 +137,10 @@ autocmd FileType php setl autoindent
 autocmd FileType php setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType php setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:syntastic_quiet_messages = { "type": "style", "file": '\m\c\.php$'}
+
+" Python
+autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+" Gauche
+let g:neocomplcache_keyword_patterns['gosh-repl'] = "[[:alpha:]+*/@$_=.!?-][[:alnum:]+*/@$_:=.!?-]*"
+autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
