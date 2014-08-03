@@ -130,3 +130,6 @@ autocmd FileType php setl autoindent
 autocmd FileType php setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType php setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:syntastic_quiet_messages = { "type": "style", "file": '\m\c\.php$'}
+
+" Python
+autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
