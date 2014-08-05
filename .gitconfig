@@ -1,0 +1,12 @@
+[alias]
+  gl = log --pretty=format:\"%C(red)%h%Creset %C(cyan)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset\" --all --abbrev-commit --date=relative --graph -20
+  ga = log --pretty=format:\"%C(red)%h%Creset %C(cyan)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset\" --all --abbrev-commit --date=relative --graph
+  st = status
+  br = branch --all
+  co = checkout
+  ci = commit
+  df = "!f () { git diff --color $1 | less -R; };f"
+[color]
+  ui = auto
+[core]
+	editor = vim
