@@ -9,4 +9,7 @@
 [color]
   ui = auto
 [core]
-	editor = vim
+  editor = vim
+[user]
+  name = na-o-s
+  email = naoyoshi0511@gmail.com
