@@ -68,6 +68,10 @@ set number
 noremap : ;
 noremap ; :
 
+" Cursor moving on insert mode
+inoremap <C-l> <Right>
+inoremap <C-h> <Left>
+
 " Keymap for Tree, Buffer
 nnoremap <silent> <C-t>      :NERDTreeToggle<CR>
 vnoremap <silent> <C-t> <Esc>:NERDTreeToggle<CR>
@@ -143,3 +147,11 @@ autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 " Gauche
 let g:neocomplcache_keyword_patterns['gosh-repl'] = "[[:alpha:]+*/@$_=.!?-][[:alnum:]+*/@$_:=.!?-]*"
 autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
+
+"""""""""""""""
+" Unite.vim
+"""""""""""""""
+noremap  [unite] <Nop>
+map      <Space> [unite]
+nnoremap <silent>[unite]<Space> :<C-u>UniteWithBufferDir -buffer-name=files -vertical file directory file/new<CR>
+nnoremap <silent>[unite]b       :<C-u>Unite -immediately -no-empty buffer<CR>
