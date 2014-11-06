@@ -28,6 +28,7 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 
 " Color schemes
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -41,6 +42,7 @@ NeoBundle 'soh335/vim-symfony'
 NeoBundle 'aharisu/vim_goshrepl'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'slim-template/vim-slim'
 
 call neobundle#end()
 filetype plugin indent on
@@ -151,6 +153,11 @@ autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
 """""""""""""""
 noremap  [unite] <Nop>
 map      <Space> [unite]
-nnoremap <silent>[unite]<Space> :<C-u>UniteWithBufferDir -buffer-name=files -vertical file directory file/new<CR>
+nnoremap <silent>[unite]<Space> :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent>[unite]b       :<C-u>Unite -immediately -no-empty buffer<CR>
 nnoremap <silent>[unite]e       :<C-u>Unite file_rec/async:!<CR>
+
+"""""""""""""""
+" Unite.vim
+"""""""""""""""
+let g:vimfiler_as_default_explorer=1
