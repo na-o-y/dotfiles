@@ -1,11 +1,9 @@
-set nocompatible
-
 """""""""""""""
 " NeoBundle
 """""""""""""""
 if has ('vim_starting')
+  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle'))
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -155,3 +153,4 @@ noremap  [unite] <Nop>
 map      <Space> [unite]
 nnoremap <silent>[unite]<Space> :<C-u>UniteWithBufferDir -buffer-name=files -vertical file directory file/new<CR>
 nnoremap <silent>[unite]b       :<C-u>Unite -immediately -no-empty buffer<CR>
+nnoremap <silent>[unite]e       :<C-u>Unite file_rec/async:!<CR>
