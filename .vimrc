@@ -22,7 +22,6 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'majutsushi/tagbar'
@@ -72,12 +71,7 @@ noremap ; :
 inoremap <C-l> <Right>
 inoremap <C-h> <Left>
 
-" Keymap for Tree, Buffer
-nnoremap <silent> <C-t>      :NERDTreeToggle<CR>
-vnoremap <silent> <C-t> <Esc>:NERDTreeToggle<CR>
-onoremap <silent> <C-t>      :NERDTreeToggle<CR>
-inoremap <silent> <C-t> <Esc>:NERDTreeToggle<CR>
-cnoremap <silent> <C-t> <C-u>:NERDTreeToggle<CR>
+" Keymap for Buffer
 nnoremap <silent> <C-n>  :bnext<CR>
 nnoremap <silent> <C-p>  :bprevious<CR>
 
@@ -111,7 +105,6 @@ endif
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 """""""""""""""
 " For specific languages/frameworks
 """""""""""""""
@@ -153,11 +146,12 @@ autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
 """""""""""""""
 noremap  [unite] <Nop>
 map      <Space> [unite]
-nnoremap <silent>[unite]<Space> :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent>[unite]b       :<C-u>Unite -immediately -no-empty buffer<CR>
 nnoremap <silent>[unite]e       :<C-u>Unite file_rec/async:!<CR>
 
 """""""""""""""
-" Unite.vim
+" VimFiler
 """""""""""""""
+nnoremap <silent>[unite]<Space> :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 let g:vimfiler_as_default_explorer=1
+let g:vimfiler_force_overwrite_statusline=0
