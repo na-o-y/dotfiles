@@ -42,6 +42,7 @@ NeoBundle 'aharisu/vim_goshrepl'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
 filetype plugin indent on
