@@ -111,7 +111,16 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 """""""""""""""
 
 " C++11
-if executable("clang++")
+if executable("g++-4.9")
+  let g:syntastic_cpp_compiler = 'g++-4.9'
+  let g:syntastic_cpp_compiler_options = '-std=c++1y'
+  let g:quickrun_config = {}
+  let g:quickrun_config['cpp/g++1y'] = {
+      \ 'cmdopt': '-std=c++1y',
+      \ 'type': 'cpp/g++'
+    \ }
+  let g:quickrun_config['cpp'] = {'type': 'cpp/g++1y'}
+elseif executable("clang++")
   let g:syntastic_cpp_compiler = 'clang++'
   let g:syntastic_cpp_compiler_options = '-std=c++1y'
   let g:quickrun_config = {}
