@@ -43,6 +43,7 @@ NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
 filetype plugin indent on
@@ -115,7 +116,16 @@ vnoremap * "zy:let @/ = @z<CR>n"
 """""""""""""""
 
 " C++11
-if executable("clang++")
+if executable("g++-4.9")
+  let g:syntastic_cpp_compiler = 'g++-4.9'
+  let g:syntastic_cpp_compiler_options = '-std=c++1y'
+  let g:quickrun_config = {}
+  let g:quickrun_config['cpp/g++1y'] = {
+      \ 'cmdopt': '-std=c++1y',
+      \ 'type': 'cpp/g++'
+    \ }
+  let g:quickrun_config['cpp'] = {'type': 'cpp/g++1y'}
+elseif executable("clang++")
   let g:syntastic_cpp_compiler = 'clang++'
   let g:syntastic_cpp_compiler_options = '-std=c++1y'
   let g:quickrun_config = {}
