@@ -154,10 +154,27 @@ autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
 """""""""""""""
 " Unite.vim
 """""""""""""""
+" Ag
+if executable('ag')
+  try
+    let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  catch
+  endtry
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
 noremap  [unite] <Nop>
 map      <Space> [unite]
-nnoremap <silent>[unite]b       :<C-u>Unite -immediately -no-empty buffer<CR>
-nnoremap <silent>[unite]e       :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent>[unite]b :<C-u>Unite -immediately -no-empty buffer<CR>
+nnoremap <silent>[unite]e :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent>[unite]s :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent>[unite]ws :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+let g:unite_source_history_yank_enable = 1
+nnoremap <silent>[unite]y :<C-u>Unite history/yank<CR>
 
 """""""""""""""
 " VimFiler
