@@ -42,6 +42,7 @@ NeoBundle 'aharisu/vim_goshrepl'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
@@ -106,6 +107,10 @@ endif
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" Hacks
+vnoremap * "zy:let @/ = @z<CR>n"
+
 """""""""""""""
 " For specific languages/frameworks
 """""""""""""""
