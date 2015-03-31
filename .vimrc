@@ -163,7 +163,7 @@ autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
 if executable('ag')
   try
     let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', 'vendor\/bundle')
   catch
   endtry
   let g:unite_source_grep_command = 'ag'
