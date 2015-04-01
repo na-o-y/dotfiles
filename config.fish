@@ -16,4 +16,4 @@ set fish_custom $HOME/dotfiles/oh-my-fish
 . $fish_path/oh-my-fish.fish
 
 set -Ux LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
-set prompt_user "ﾛｰｶﾙ (๑❛ᴗ❛๑)"
+set prompt_user "(๑❛ᴗ❛๑)"
