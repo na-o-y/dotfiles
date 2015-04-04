@@ -1,3 +1,6 @@
+" Shell
+set shell=bash
+
 """""""""""""""
 " NeoBundle
 """""""""""""""
@@ -44,6 +47,7 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'dag/vim-fish'
 
 call neobundle#end()
 filetype plugin indent on
