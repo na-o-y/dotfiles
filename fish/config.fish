@@ -8,7 +8,7 @@ set -x PATH $HOME/.rbenv/bin $PATH
 set -x PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 
-# topcoder
+# Topcoder
 if test -e $HOME/topcoder/lib/template.cpp
   function templ
     cp $HOME/topcoder/lib/template.cpp $argv
