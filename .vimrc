@@ -48,6 +48,7 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'dag/vim-fish'
+NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 filetype plugin indent on
@@ -146,6 +147,7 @@ set rtp+=$GOROOT/misc/vim
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 au BufNewFile,BufRead *.go setf go
+autocmd FileType go setl tabstop=8 shiftwidth=8 softtabstop=8
 
 " PHP
 autocmd FileType php setl autoindent
