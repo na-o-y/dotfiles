@@ -116,4 +116,12 @@ function fish_prompt --description 'Write out the prompt'
 
   echo -s "$__fish_prompt_normal" "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt)
   echo -s "$__fish_prompt_user" "$prompt_user" ' ' "$__fish_prompt_normal" "$delim" ' '
+
+  # notify long duration command finished
+  if test $CMD_DURATION
+    if test $CMD_DURATION -gt (math "1000 * 10")
+      set secs (math "$CMD_DURATION / 1000")
+      fish_notify "$history[1]" "Returned $status, took $secs seconds"
+    end
+  end
 end
