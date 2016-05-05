@@ -1,5 +1,11 @@
+atom-typescript@8.9.1
 jumpy@3.0.3
+linter@1.11.4
 maximize-panes@0.2.0
-minimap@4.19.0
-project-manager@2.7.6
+minimap@4.23.2
+project-manager@2.9.7
+react@0.15.0
+ruby-slim@0.2.0
+wakatime@5.0.8
+
 
