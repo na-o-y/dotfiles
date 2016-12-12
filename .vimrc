@@ -121,15 +121,15 @@ vnoremap * "zy:let @/ = @z<CR>n"
 """""""""""""""
 
 " C++11
-if executable("g++-4.9")
-  let g:syntastic_cpp_compiler = 'g++-4.9'
-  let g:syntastic_cpp_compiler_options = '-std=c++1y'
+if executable("g++-6")
+  let g:syntastic_cpp_compiler = 'g++-6'
+  let g:syntastic_cpp_compiler_options = '-std=c++14'
   let g:quickrun_config = {}
-  let g:quickrun_config['cpp/g++1y'] = {
-      \ 'cmdopt': '-std=c++1y',
+  let g:quickrun_config['cpp/g++14'] = {
+      \ 'cmdopt': '-std=c++14',
       \ 'type': 'cpp/g++'
     \ }
-  let g:quickrun_config['cpp'] = {'type': 'cpp/g++1y'}
+  let g:quickrun_config['cpp'] = {'type': 'cpp/g++14'}
 elseif executable("clang++")
   let g:syntastic_cpp_compiler = 'clang++'
   let g:syntastic_cpp_compiler_options = '-std=c++1y'
@@ -161,6 +161,9 @@ autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 " Gauche
 let g:neocomplcache_keyword_patterns['gosh-repl'] = "[[:alpha:]+*/@$_=.!?-][[:alnum:]+*/@$_:=.!?-]*"
 autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
+
+" Haskell
+autocmd FileType haskell setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 """""""""""""""
 " Unite.vim
