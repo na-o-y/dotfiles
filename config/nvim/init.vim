@@ -58,6 +58,7 @@ noremap  [denite] <Nop>
 map      <Space> [denite]
 nnoremap <silent>[denite]e :<C-u>Denite file_rec<CR>
 nnoremap <silent>[denite]g :<C-u>Denite grep<CR>
+nnoremap <silent>[denite]f :<C-u>Denite file_mru<CR>
 
 """""""""""""""
 " For specific languages/frameworks
