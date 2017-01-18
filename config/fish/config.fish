@@ -3,6 +3,8 @@ set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 set -x LESS '-R'
 set prompt_user "(๑❛ᴗ❛๑)ｶｲﾊﾂ"
 
+set -x PATH /sbin $PATH
+
 # rbenv
 if test -d $HOME/.rbenv
   set -x PATH $HOME/.rbenv/bin $PATH
@@ -13,6 +15,7 @@ end
 # pyenv
 if test -d $HOME/.pyenv
   set PYENV_ROOT $HOME/.pyenv
+  set -x PATH $PYENV_ROOT/bin $PATH
   set -x PATH $PYENV_ROOT/shims $PATH
   pyenv rehash
 end

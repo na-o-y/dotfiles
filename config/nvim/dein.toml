@@ -11,3 +11,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'kana/vim-smartinput'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'

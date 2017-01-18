@@ -51,6 +51,15 @@ nnoremap <silent> <C-p>  :bprevious<CR>
 vnoremap * "zy:let @/ = @z<CR>n"
 
 """""""""""""""
+" Denite.vim
+"""""""""""""""
+
+noremap  [denite] <Nop>
+map      <Space> [denite]
+nnoremap <silent>[denite]e :<C-u>Denite file_rec<CR>
+nnoremap <silent>[denite]g :<C-u>Denite grep<CR>
+
+"""""""""""""""
 " For specific languages/frameworks
 """""""""""""""
 
