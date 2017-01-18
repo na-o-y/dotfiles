@@ -8,3 +8,6 @@ repo = 'tpope/vim-surround'
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
   set background=dark'''
+
+[[plugins]]
+repo = 'kana/vim-smartinput'
