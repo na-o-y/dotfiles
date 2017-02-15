@@ -10,6 +10,7 @@
   ui = auto
 [core]
   editor = vim
+  excludesfile = $HOME/dotfiles/gitignore.global
 [user]
   name = naoyoshi
   email = naoyoshi0511@gmail.com
