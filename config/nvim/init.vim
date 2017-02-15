@@ -50,6 +50,12 @@ nnoremap <silent> <C-p>  :bprevious<CR>
 " Hacks
 vnoremap * "zy:let @/ = @z<CR>n"
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Rename
+command! -nargs=1 -complete=file Rename f %:h/<args>|call delete(expand('#'))
+
 """""""""""""""
 " Denite.vim
 """""""""""""""
@@ -57,8 +63,15 @@ vnoremap * "zy:let @/ = @z<CR>n"
 noremap  [denite] <Nop>
 map      <Space> [denite]
 nnoremap <silent>[denite]e :<C-u>Denite file_rec<CR>
-nnoremap <silent>[denite]g :<C-u>Denite grep<CR>
-nnoremap <silent>[denite]f :<C-u>Denite file_mru<CR>
+nnoremap <silent>[denite]<S-Char-101> :<C-u>DeniteCursorWord -mode=normal file_rec<CR>
+nnoremap <silent>[define]<S-Char-103> :<C-u>DeniteCursorWord -mode=normal grep<CR>
+nnoremap <silent>[denite]f :<C-u>DeniteProjectDir file_mru<CR>
+nnoremap <silent>[denite]b :<C-u>DeniteProjectDir file_mru -mode=normal<CR>
+nnoremap <silent>[denite]l :<C-u>DeniteCursorWord -auto-preview -mode=normal line<CR>
+nnoremap <silent>[denite]g :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
+nnoremap <silent>[denite]r :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+nnoremap <silent>[denite]n :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+nnoremap <silent>[denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
 
 """""""""""""""
 " For specific languages/frameworks
