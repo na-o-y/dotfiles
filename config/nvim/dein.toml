@@ -20,3 +20,9 @@ repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'

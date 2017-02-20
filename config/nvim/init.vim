@@ -119,3 +119,7 @@ autocmd FileType scheme vmap <CR> <Plug>(gosh_repl_send_block)
 
 " Haskell
 autocmd FileType haskell setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+" Rust
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_experimental_completer = 1

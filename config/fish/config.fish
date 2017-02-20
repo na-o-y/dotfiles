@@ -1,7 +1,7 @@
 set fish_dir $HOME/.config/fish
 set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 set -x LESS '-R'
-set prompt_user "(๑❛ᴗ❛๑)ｶｲﾊﾂ"
+set prompt_user "(๑❛ᴗ❛๑)"
 
 set -x PATH /sbin $PATH
 
@@ -39,6 +39,11 @@ set -x ANSIBLE_NOCOWS 1
 # cabal
 if test -d $HOME/.cabal/bin
   set -x PATH $HOME/.cabal/bin $PATH
+end
+
+# Rust
+if test -d $HOME/.cargo/bin
+  set -x PATH $HOME/.cargo/bin $PATH
 end
 
 set -x PATH $HOME/scripts $PATH
