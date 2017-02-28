@@ -7,8 +7,9 @@ set -x PATH /sbin $PATH
 
 # rbenv
 if test -d $HOME/.rbenv
-  set -x PATH $HOME/.rbenv/bin $PATH
-  set -x PATH $HOME/.rbenv/shims $PATH
+  set -x RBENV_ROOT $HOME/.rbenv
+  set -x PATH $RBENV_ROOT/bin $PATH
+  set -x PATH $RBENV_ROOT/shims $PATH
   rbenv rehash >/dev/null ^&1
 end
 
