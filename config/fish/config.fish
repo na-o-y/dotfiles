@@ -48,3 +48,7 @@ end
 
 set -x PATH $HOME/scripts $PATH
 alias vim='nvim'
+
+if test -e $HOME/.config/fish/env.fish
+  . $HOME/.config/fish/env.fish
+end
