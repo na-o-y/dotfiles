@@ -48,3 +48,11 @@ end
 
 set -x PATH $HOME/scripts $PATH
 alias vim='nvim'
+
+# Golang
+if test -d $HOME/go
+  set -x GOPATH $HOME/go
+end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/200117/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/200117/google-cloud-sdk/path.fish.inc'; else; . '/Users/200117/google-cloud-sdk/path.fish.inc'; end; end
