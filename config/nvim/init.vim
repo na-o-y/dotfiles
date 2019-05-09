@@ -3,13 +3,17 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-set runtimepath+=$HOME/.dein/repos/github.com/Shougo/dein.vim
-call dein#begin('$HOME/.dein')
-call dein#add('Shougo/dein.vim')
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-call dein#load_toml('$HOME/.config/nvim/dein.toml')
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#load_toml('~/.config/nvim/dein.toml')
 
-call dein#end()
+  call dein#end()
+  call dein#save_state()
+endif
+
 filetype plugin indent on
 syntax enable
 
